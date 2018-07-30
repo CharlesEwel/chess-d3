@@ -7,8 +7,7 @@ var data = [
    "Draw": 21.6,
    "Loss": 35.6,
    "Difference": 7.2,
-   "Percentage Popularity": 1.429940296,
-   "Normalized Popularity": 1.214777708
+   "Percentage Popularity": 1.429940296
  },
  {
    "Name": "Alapin (2 ...Nf6)",
@@ -18,8 +17,7 @@ var data = [
    "Draw": 26.8,
    "Loss": 33.3,
    "Difference": 6.6,
-   "Percentage Popularity": 1.017174025,
-   "Normalized Popularity": 0.8641202256
+   "Percentage Popularity": 1.017174025
  },
  {
    "Name": "Alapin (2 ...d5)",
@@ -29,8 +27,7 @@ var data = [
    "Draw": 29.5,
    "Loss": 32,
    "Difference": 6.5,
-   "Percentage Popularity": 1.24566964,
-   "Normalized Popularity": 1.058234189
+   "Percentage Popularity": 1.24566964
  },
  {
    "Name": "Grand Prix Attack (2 ... Nc6)",
@@ -40,8 +37,7 @@ var data = [
    "Draw": 26.7,
    "Loss": 30.8,
    "Difference": 11.7,
-   "Percentage Popularity": 1.076140635,
-   "Normalized Popularity": 0.9142141517
+   "Percentage Popularity": 1.076140635
  },
  {
    "Name": "Closed Sicilian (2 ... Nc6)",
@@ -51,8 +47,7 @@ var data = [
    "Draw": 28.9,
    "Loss": 33.1,
    "Difference": 4.9,
-   "Percentage Popularity": 1.04665733,
-   "Normalized Popularity": 0.8891671887
+   "Percentage Popularity": 1.04665733
  },
  {
    "Name": "Open Sicilian, Hyper-Accelerated Dragon",
@@ -62,8 +57,7 @@ var data = [
    "Draw": 21.9,
    "Loss": 42.6,
    "Difference": -7.1,
-   "Percentage Popularity": 1.24566964,
-   "Normalized Popularity": 1.058234189
+   "Percentage Popularity": 1.24566964
  },
  {
    "Name": "Open Sicilian (2 ... e6)",
@@ -73,8 +67,7 @@ var data = [
    "Draw": 22.9,
    "Loss": 37.9,
    "Difference": 1.3,
-   "Percentage Popularity": 7.827817498,
-   "Normalized Popularity": 6.649968693
+   "Percentage Popularity": 7.827817498
  },
  {
    "Name": "Open Sicilian (2 ... Nc6)",
@@ -84,8 +77,7 @@ var data = [
    "Draw": 23.6,
    "Loss": 35.4,
    "Difference": 5.6,
-   "Percentage Popularity": 7.658288494,
-   "Normalized Popularity": 6.505948655
+   "Percentage Popularity": 7.658288494
  },
  {
    "Name": "Rossolimo",
@@ -95,8 +87,7 @@ var data = [
    "Draw": 25,
    "Loss": 36.4,
    "Difference": 2.2,
-   "Percentage Popularity": 1.297265423,
-   "Normalized Popularity": 1.102066375
+   "Percentage Popularity": 1.297265423
  },
  {
    "Name": "Open Sicilian, Moscow Variation",
@@ -106,8 +97,7 @@ var data = [
    "Draw": 26.1,
    "Loss": 35.8,
    "Difference": 2.3,
-   "Percentage Popularity": 0.9876907201,
-   "Normalized Popularity": 0.8390732626
+   "Percentage Popularity": 0.9876907201
  },
  {
    "Name": "Delayed Alapin",
@@ -117,8 +107,7 @@ var data = [
    "Draw": 20.6,
    "Loss": 36.3,
    "Difference": 6.8,
-   "Percentage Popularity": 0.7518242795,
-   "Normalized Popularity": 0.6386975581
+   "Percentage Popularity": 0.7518242795
  },
  {
    "Name": "Open Sicilian (2 ... d6)",
@@ -128,8 +117,7 @@ var data = [
    "Draw": 20.4,
    "Loss": 37.6,
    "Difference": 4.5,
-   "Percentage Popularity": 11.77120955,
-   "Normalized Popularity": 10
+   "Percentage Popularity": 11.77120955
  },
  {
    "Name": "Modern Defense (3 Nf3)",
@@ -139,8 +127,7 @@ var data = [
    "Draw": 16.4,
    "Loss": 49.1,
    "Difference": -14.6,
-   "Percentage Popularity": 0.8550158473,
-   "Normalized Popularity": 0.7263619288
+   "Percentage Popularity": 0.8550158473
  },
  {
    "Name": "Modern Defense (3 Nc3)",
@@ -150,8 +137,7 @@ var data = [
    "Draw": 21.4,
    "Loss": 34.8,
    "Difference": 9,
-   "Percentage Popularity": 0.8255325422,
-   "Normalized Popularity": 0.7013149657
+   "Percentage Popularity": 0.8255325422
  },
  {
    "Name": "Pirc Defense",
@@ -161,8 +147,7 @@ var data = [
    "Draw": 25.6,
    "Loss": 34.4,
    "Difference": 5.5,
-   "Percentage Popularity": 3.766492224,
-   "Normalized Popularity": 3.199749531
+   "Percentage Popularity": 3.766492224
  },
  {
    "Name": "Scandinavian, Modern Variation",
@@ -172,8 +157,7 @@ var data = [
    "Draw": 24.2,
    "Loss": 37.5,
    "Difference": 0.8,
-   "Percentage Popularity": 0.9434657625,
-   "Normalized Popularity": 0.801502818
+   "Percentage Popularity": 0.9434657625
  },
  {
    "Name": "Scandinavian, Mieses-Kotroc Variation",
@@ -183,8 +167,7 @@ var data = [
    "Draw": 30,
    "Loss": 29.1,
    "Difference": 11.7,
-   "Percentage Popularity": 4.223483452,
-   "Normalized Popularity": 3.587977459
+   "Percentage Popularity": 4.223483452
  },
  {
    "Name": "Caro-Kann Two Knights",
@@ -194,8 +177,7 @@ var data = [
    "Draw": 25.7,
    "Loss": 37.6,
    "Difference": -1,
-   "Percentage Popularity": 0.7444534532,
-   "Normalized Popularity": 0.6324358173
+   "Percentage Popularity": 0.7444534532
  },
  {
    "Name": "Caro-Kann Main Line",
@@ -205,8 +187,7 @@ var data = [
    "Draw": 27.5,
    "Loss": 35.1,
    "Difference": 2.3,
-   "Percentage Popularity": 2.918847203,
-   "Normalized Popularity": 2.479649343
+   "Percentage Popularity": 2.918847203
  },
  {
    "Name": "Caro-Kann Exchange Variation",
@@ -216,8 +197,7 @@ var data = [
    "Draw": 29,
    "Loss": 32.9,
    "Difference": 5.2,
-   "Percentage Popularity": 3.095747033,
-   "Normalized Popularity": 2.629931121
+   "Percentage Popularity": 3.095747033
  },
  {
    "Name": "Caro-Kann Advance Variation",
@@ -227,8 +207,7 @@ var data = [
    "Draw": 28.3,
    "Loss": 34.3,
    "Difference": 3.1,
-   "Percentage Popularity": 1.872189872,
-   "Normalized Popularity": 1.590482154
+   "Percentage Popularity": 1.872189872
  },
  {
    "Name": "French Defense, Normal Variation",
@@ -238,8 +217,7 @@ var data = [
    "Draw": 24.9,
    "Loss": 37.6,
    "Difference": -0.1,
-   "Percentage Popularity": 4.52568733,
-   "Normalized Popularity": 3.84470883
+   "Percentage Popularity": 4.52568733
  },
  {
    "Name": "French Defense, Exchange Variation",
@@ -249,8 +227,7 @@ var data = [
    "Draw": 30.9,
    "Loss": 38.4,
    "Difference": -7.7,
-   "Percentage Popularity": 3.508513304,
-   "Normalized Popularity": 2.980588604
+   "Percentage Popularity": 3.508513304
  },
  {
    "Name": "French Defense, Advance Variation",
@@ -260,8 +237,7 @@ var data = [
    "Draw": 17.9,
    "Loss": 42.8,
    "Difference": -3.6,
-   "Percentage Popularity": 3.493771652,
-   "Normalized Popularity": 2.968065123
+   "Percentage Popularity": 3.493771652
  },
  {
    "Name": "French Defense, Tarrasch Variation",
@@ -271,8 +247,7 @@ var data = [
    "Draw": 25.4,
    "Loss": 31.1,
    "Difference": 12.4,
-   "Percentage Popularity": 3.368467605,
-   "Normalized Popularity": 2.86161553
+   "Percentage Popularity": 3.368467605
  },
  {
    "Name": "Philidor Defense",
@@ -282,8 +257,7 @@ var data = [
    "Draw": 24.7,
    "Loss": 28.1,
    "Difference": 19.2,
-   "Percentage Popularity": 1.076140635,
-   "Normalized Popularity": 0.9142141517
+   "Percentage Popularity": 1.076140635
  },
  {
    "Name": "Petroff Defense, 3 Knights Variation",
@@ -293,8 +267,7 @@ var data = [
    "Draw": 19.3,
    "Loss": 25.9,
    "Difference": 15.7,
-   "Percentage Popularity": 1.186703029,
-   "Normalized Popularity": 1.008140263
+   "Percentage Popularity": 1.186703029
  },
  {
    "Name": "Petroff Defense, Main Line",
@@ -304,8 +277,7 @@ var data = [
    "Draw": 29.4,
    "Loss": 25.9,
    "Difference": 18.8,
-   "Percentage Popularity": 1.452052775,
-   "Normalized Popularity": 1.233562931
+   "Percentage Popularity": 1.452052775
  },
  {
    "Name": "Four Knights Game",
@@ -315,8 +287,7 @@ var data = [
    "Draw": 31.1,
    "Loss": 30.7,
    "Difference": 7.5,
-   "Percentage Popularity": 1.680548389,
-   "Normalized Popularity": 1.427676894
+   "Percentage Popularity": 1.680548389
  },
  {
    "Name": "Scotch Game",
@@ -326,8 +297,7 @@ var data = [
    "Draw": 22.2,
    "Loss": 31,
    "Difference": 15.7,
-   "Percentage Popularity": 5.063757647,
-   "Normalized Popularity": 4.301815906
+   "Percentage Popularity": 5.063757647
  },
  {
    "Name": "Italian Game",
@@ -337,8 +307,7 @@ var data = [
    "Draw": 22,
    "Loss": 35.1,
    "Difference": 7.8,
-   "Percentage Popularity": 8.469079384,
-   "Normalized Popularity": 7.194740139
+   "Percentage Popularity": 8.469079384
  },
  {
    "Name": "Ruy Lopez",
@@ -348,7 +317,12 @@ var data = [
    "Draw": 24.3,
    "Loss": 31.8,
    "Difference": 12.1,
-   "Percentage Popularity": 9.574703324,
-   "Normalized Popularity": 8.134001254
+   "Percentage Popularity": 9.574703324
  }
 ]
+var svg = dimple.newSvg("#first-chart", 800, 600);
+var chart = new dimple.chart(svg, data);
+chart.addMeasureAxis("x", "Difference");
+chart.addMeasureAxis("y", "Percentage Popularity");
+chart.addSeries("Name", dimple.plot.bubble);
+chart.draw()
