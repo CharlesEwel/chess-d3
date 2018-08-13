@@ -461,6 +461,8 @@ secondChart.addSeries(["Name", "Category"], dimple.plot.bubble);
 secondChart.assignColor("Caro-Kann", "pink")
 secondChart.addLegend(100, 100, 360, 60, "left");
 secondChart.draw();
+
+//Add Red Vertical Line for Mean Winning Difference
 secondSvg.append("line")
     .attr("x1", x._scale(averageJSON("Difference")))
     .attr("x2", x._scale(averageJSON("Difference")))
@@ -468,3 +470,15 @@ secondSvg.append("line")
     .attr("y2", secondChart._yPixels() + secondChart._heightPixels())
     .style("stroke", "red")
     .style("stroke-dasharray", "3");
+
+//Modify Legend to Allow Hiding and Showing of Categories
+secondSvg.selectAll("title_text")
+          .data(["Click legend to","show/hide categories:"])
+          .enter()
+          .append("text")
+            .attr("x", 150)
+            .attr("y", function (d, i) { return 75 + i * 14; })
+            .style("font-family", "sans-serif")
+            .style("font-size", "10px")
+            .style("color", "Black")
+            .text(function (d) { return d; });
