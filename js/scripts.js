@@ -1,6 +1,7 @@
 var jsondata = [
  {
    "Name": "Smith-Morra Gambit",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 d4 cxd4 3 c3 ",
    "Games Found": 194,
    "Win": 42.8,
@@ -11,6 +12,7 @@ var jsondata = [
  },
  {
    "Name": "Alapin (2 ...Nf6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 c3 Nf6 3 e5",
    "Games Found": 138,
    "Win": 39.9,
@@ -21,6 +23,7 @@ var jsondata = [
  },
  {
    "Name": "Alapin (2 ...d5)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 c3 d5 3 exd5",
    "Games Found": 169,
    "Win": 38.5,
@@ -31,6 +34,7 @@ var jsondata = [
  },
  {
    "Name": "Grand Prix Attack (2 ... Nc6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nc3 Nc6 3 f4",
    "Games Found": 146,
    "Win": 42.5,
@@ -41,6 +45,7 @@ var jsondata = [
  },
  {
    "Name": "Closed Sicilian (2 ... Nc6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nc3 Nc6 3 g3",
    "Games Found": 142,
    "Win": 38,
@@ -51,6 +56,7 @@ var jsondata = [
  },
  {
    "Name": "Open Sicilian, Hyper-Accelerated Dragon",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 g6 3 d4",
    "Games Found": 169,
    "Win": 35.5,
@@ -61,6 +67,7 @@ var jsondata = [
  },
  {
    "Name": "Open Sicilian (2 ... e6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 e6 3 d4",
    "Games Found": 1062,
    "Win": 39.2,
@@ -71,6 +78,7 @@ var jsondata = [
  },
  {
    "Name": "Open Sicilian (2 ... Nc6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 Nc6 3 d4",
    "Games Found": 1039,
    "Win": 41,
@@ -81,6 +89,7 @@ var jsondata = [
  },
  {
    "Name": "Rossolimo",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 Nc6 3 Bb5",
    "Games Found": 176,
    "Win": 38.6,
@@ -91,6 +100,7 @@ var jsondata = [
  },
  {
    "Name": "Open Sicilian, Moscow Variation",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 d6 3 Bb5+",
    "Games Found": 134,
    "Win": 38.1,
@@ -101,6 +111,7 @@ var jsondata = [
  },
  {
    "Name": "Delayed Alapin",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 d6 3 c3",
    "Games Found": 102,
    "Win": 43.1,
@@ -111,6 +122,7 @@ var jsondata = [
  },
  {
    "Name": "Open Sicilian (2 ... d6)",
+   "Category": "Sicilian",
    "Moves": "1 e4 c5 2 Nf3 d6 3 d4",
    "Games Found": 1597,
    "Win": 42.1,
@@ -121,6 +133,7 @@ var jsondata = [
  },
  {
    "Name": "Modern Defense (3 Nf3)",
+   "Category": "Modern",
    "Moves": "1 e4 g6 2 d4 Bg7 3 Nf3",
    "Games Found": 116,
    "Win": 34.5,
@@ -131,6 +144,7 @@ var jsondata = [
  },
  {
    "Name": "Modern Defense (3 Nc3)",
+   "Category": "Modern",
    "Moves": "1 e4 g6 2 d4 Bg7 3 Nc3",
    "Games Found": 112,
    "Win": 43.8,
@@ -141,6 +155,7 @@ var jsondata = [
  },
  {
    "Name": "Pirc Defense",
+   "Category": "Pirc",
    "Moves": "1 e4 d6 2 d4 Nf6 3 Nc3",
    "Games Found": 511,
    "Win": 39.9,
@@ -151,6 +166,7 @@ var jsondata = [
  },
  {
    "Name": "Scandinavian, Modern Variation",
+   "Category": "Scandinavian",
    "Moves": "1 e4 d5 2 exd5 Nf6 3 d4",
    "Games Found": 128,
    "Win": 38.3,
@@ -161,6 +177,7 @@ var jsondata = [
  },
  {
    "Name": "Scandinavian, Mieses-Kotroc Variation",
+   "Category": "Scandinavian",
    "Moves": "1 e4 d5 2 exd5 Qxd5 3 Nc3",
    "Games Found": 573,
    "Win": 40.8,
@@ -171,6 +188,7 @@ var jsondata = [
  },
  {
    "Name": "Caro-Kann Two Knights",
+   "Category": "Caro-Kann",
    "Moves": "1e4 c6 2 Nf3 d5 3 Nc3",
    "Games Found": 101,
    "Win": 36.6,
@@ -181,6 +199,7 @@ var jsondata = [
  },
  {
    "Name": "Caro-Kann Main Line",
+   "Category": "Caro-Kann",
    "Moves": "1e4 c6 2 d4 d5 3 Nc3",
    "Games Found": 396,
    "Win": 37.4,
@@ -191,6 +210,7 @@ var jsondata = [
  },
  {
    "Name": "Caro-Kann Exchange Variation",
+   "Category": "Caro-Kann",
    "Moves": "1e4 c6 2 d4 d5 3 exd5",
    "Games Found": 420,
    "Win": 38.1,
@@ -201,6 +221,7 @@ var jsondata = [
  },
  {
    "Name": "Caro-Kann Advance Variation",
+   "Category": "Caro-Kann",
    "Moves": "1e4 c6 2d4 d5 3 e5",
    "Games Found": 254,
    "Win": 37.4,
@@ -211,6 +232,7 @@ var jsondata = [
  },
  {
    "Name": "French Defense, Normal Variation",
+   "Category": "French",
    "Moves": "1 e4 e6 2 d4 d5 3 Nc3",
    "Games Found": 614,
    "Win": 37.5,
@@ -221,6 +243,7 @@ var jsondata = [
  },
  {
    "Name": "French Defense, Exchange Variation",
+   "Category": "French",
    "Moves": "1 e4 e6 2 d4 d5 3 exd5",
    "Games Found": 476,
    "Win": 30.7,
@@ -231,6 +254,7 @@ var jsondata = [
  },
  {
    "Name": "French Defense, Advance Variation",
+   "Category": "French",
    "Moves": "1 e4 e6 2 d4 d5 3 e5",
    "Games Found": 474,
    "Win": 39.2,
@@ -241,6 +265,7 @@ var jsondata = [
  },
  {
    "Name": "French Defense, Tarrasch Variation",
+   "Category": "French",
    "Moves": "1 e4 e6 2 d4 d5 3 Nd2",
    "Games Found": 457,
    "Win": 43.5,
@@ -251,6 +276,7 @@ var jsondata = [
  },
  {
    "Name": "Philidor Defense",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 d6 3 d4",
    "Games Found": 146,
    "Win": 47.3,
@@ -261,6 +287,7 @@ var jsondata = [
  },
  {
    "Name": "Petroff Defense, 3 Knights Variation",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nf6 3 Nc3",
    "Games Found": 161,
    "Win": 41.6,
@@ -271,6 +298,7 @@ var jsondata = [
  },
  {
    "Name": "Petroff Defense, Main Line",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nf6 3 Nxe5",
    "Games Found": 197,
    "Win": 44.7,
@@ -281,6 +309,7 @@ var jsondata = [
  },
  {
    "Name": "Four Knights Game",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nc6 3 Nc3",
    "Games Found": 228,
    "Win": 38.2,
@@ -291,6 +320,7 @@ var jsondata = [
  },
  {
    "Name": "Scotch Game",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nc6 3 d4",
    "Games Found": 687,
    "Win": 46.7,
@@ -301,6 +331,7 @@ var jsondata = [
  },
  {
    "Name": "Italian Game",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nc6 3 Bc4",
    "Games Found": 1149,
    "Win": 42.9,
@@ -311,6 +342,7 @@ var jsondata = [
  },
  {
    "Name": "Ruy Lopez",
+   "Category": "Open",
    "Moves": "1 e4 e5 2 Nf3 Nc6 3 Bb5",
    "Games Found": 1299,
    "Win": 43.9,
@@ -321,8 +353,19 @@ var jsondata = [
  }
 ]
 
-//Create a table
-function tabulate(data, columns) {
+function averageJSON(categoryName) {
+  var total=0;
+  var iterations = 0;
+  for(var i in jsondata) {
+    total+=jsondata[i][categoryName];
+    iterations++
+  };
+  var average = parseFloat(total)/iterations;
+  return average
+}
+
+//Create first table
+function firstTabulate(data, columns) {
 	var table = d3.select('#first-table').append('table')
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
@@ -355,12 +398,73 @@ function tabulate(data, columns) {
 }
 
 // render the table(s)
-tabulate(jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
+firstTabulate(jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
 
 //Create a chart
-var svg = dimple.newSvg("#first-chart", 800, 600);
-var chart = new dimple.chart(svg, jsondata);
-chart.addMeasureAxis("x", "Difference");
-chart.addMeasureAxis("y", "Percentage Popularity");
-chart.addSeries("Name", dimple.plot.bubble);
-chart.draw()
+var firstSvg = dimple.newSvg("#first-chart", 800, 600);
+var firstChart = new dimple.chart(firstSvg, jsondata);
+firstChart.addMeasureAxis("x", "Difference");
+firstChart.addMeasureAxis("y", "Percentage Popularity");
+firstChart.addSeries("Name", dimple.plot.bubble);
+firstChart.draw()
+//Create second table
+function secondTabulate(data){
+		  var sortAscending = true;
+		  var table = d3.select('#second-table').append('table');
+		  var titles = d3.keys(data[0]);
+		  var headers = table.append('thead').append('tr')
+		                   .selectAll('th')
+		                   .data(titles).enter()
+		                   .append('th')
+		                   .text(function (d) {
+			                    return d;
+		                    })
+		                   .on('click', function (d) {
+		                	   headers.attr('class', 'header');
+
+		                	   if (sortAscending) {
+		                	     rows.sort(function(a, b) { return b[d] < a[d]; });
+		                	     sortAscending = false;
+		                	     this.className = 'aes';
+		                	   } else {
+		                		 rows.sort(function(a, b) { return b[d] > a[d]; });
+		                		 sortAscending = true;
+		                		 this.className = 'des';
+		                	   }
+
+		                   });
+		  var rows = table.append('tbody').selectAll('tr')
+		               .data(data).enter()
+		               .append('tr');
+		  rows.selectAll('td')
+		    .data(function (d) {
+		    	return titles.map(function (k) {
+		    		return { 'value': d[k], 'name': k};
+		    	});
+		    }).enter()
+		    .append('td')
+		    .attr('data-th', function (d) {
+		    	return d.name;
+		    })
+		    .text(function (d) {
+		    	return d.value;
+		    });
+	  };
+
+    secondTabulate(jsondata);
+
+var secondSvg = dimple.newSvg("#second-chart", 800, 600);
+var secondChart = new dimple.chart(secondSvg, jsondata);
+var x = secondChart.addMeasureAxis("x", "Difference");
+secondChart.addLogAxis("y", "Percentage Popularity", 2);
+secondChart.addSeries(["Name", "Category"], dimple.plot.bubble);
+secondChart.assignColor("Caro-Kann", "pink")
+secondChart.addLegend(100, 100, 360, 60, "left");
+secondChart.draw();
+secondSvg.append("line")
+    .attr("x1", x._scale(averageJSON("Difference")))
+    .attr("x2", x._scale(averageJSON("Difference")))
+    .attr("y1", secondChart._yPixels())
+    .attr("y2", secondChart._yPixels() + secondChart._heightPixels())
+    .style("stroke", "red")
+    .style("stroke-dasharray", "3");
