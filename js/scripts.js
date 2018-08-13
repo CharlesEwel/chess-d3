@@ -468,8 +468,19 @@ secondSvg.append("line")
     .attr("x2", x._scale(averageJSON("Difference")))
     .attr("y1", secondChart._yPixels())
     .attr("y2", secondChart._yPixels() + secondChart._heightPixels())
+    .attr("class", "mean")
     .style("stroke", "red")
     .style("stroke-dasharray", "3");
+secondSvg.selectAll("mean-text")
+          .data(["Median Winning",  "Percentage"])
+          .enter()
+          .append("text")
+            .attr("x", 400)
+            .attr("y", function (d, i) { return 25 + i * 18; })
+            .attr("class", "mean-winning")
+            .style("font-family", "sans-serif")
+            .style("font-size", "16px")
+            .text(function (d) { return d; });
 
 //Modify Legend to Allow Hiding and Showing of Categories
 secondSvg.selectAll("title_text")
