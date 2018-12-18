@@ -464,6 +464,19 @@ function createAdvancedChart(divId, data) {
   chart.assignColor("Caro-Kann", "pink")
   var legend = chart.addLegend(100, 100, 360, 60, "left");
   chart.draw();
+  drawMedianLine(svg, x, chart);
+
+  //Modify Legend to Allow Hiding and Showing of Categories
+  svg.selectAll("title_text")
+            .data(["Click legend to","show/hide categories:"])
+            .enter()
+            .append("text")
+              .attr("x", 150)
+              .attr("y", function (d, i) { return 75 + i * 14; })
+              .style("font-family", "sans-serif")
+              .style("font-size", "10px")
+              .style("color", "Black")
+              .text(function (d) { return d; });
   chart.legends = [];
   // Get a unique list of Owner values to use when filtering
         var filterValues = dimple.getUniqueValues(data, "Category");
@@ -496,38 +509,33 @@ function createAdvancedChart(divId, data) {
             // Passing a duration parameter makes the chart animate. Without
             // it there is no transition
             chart.draw(800);
+            d3.select('.mean').remove()
+            drawMedianLine(svg, x, chart)
+
           });
 
-  //Add Red Vertical Line for Mean Winning Difference
-  svg.append("line")
-      .attr("x1", x._scale(averageJSON("Difference")))
-      .attr("x2", x._scale(averageJSON("Difference")))
-      .attr("y1", chart._yPixels())
-      .attr("y2", chart._yPixels() + chart._heightPixels())
-      .attr("class", "mean")
-      .style("stroke", "red")
-      .style("stroke-dasharray", "3");
-  svg.selectAll("mean-text")
-            .data(["Median Winning",  "Percentage"])
-            .enter()
-            .append("text")
-              .attr("x", 400)
-              .attr("y", function (d, i) { return 25 + i * 18; })
-              .attr("class", "mean-winning")
-              .style("font-family", "sans-serif")
-              .style("font-size", "16px")
-              .text(function (d) { return d; });
-              var thirdSvg = dimple.newSvg('#third-chart', 800, 600);
 
-  //Modify Legend to Allow Hiding and Showing of Categories
-  svg.selectAll("title_text")
-            .data(["Click legend to","show/hide categories:"])
-            .enter()
-            .append("text")
-              .attr("x", 150)
-              .attr("y", function (d, i) { return 75 + i * 14; })
-              .style("font-family", "sans-serif")
-              .style("font-size", "10px")
-              .style("color", "Black")
-              .text(function (d) { return d; });
+          function drawMedianLine(svg, x, chart){
+            svg.append("line")
+                .attr("x1", x._scale(averageJSON("Difference")))
+                .attr("x2", x._scale(averageJSON("Difference")))
+                .attr("y1", chart._yPixels())
+                .attr("y2", chart._yPixels() + chart._heightPixels())
+                .attr("class", "mean")
+                .style("stroke", "red")
+                .style("stroke-dasharray", "3");
+            svg.selectAll("mean-text")
+                      .data(["Median Winning",  "Percentage"])
+                      .enter()
+                      .append("text")
+                        .attr("x", 400)
+                        .attr("y", function (d, i) { return 25 + i * 18; })
+                        .attr("class", "mean-winning")
+                        .style("font-family", "sans-serif")
+                        .style("font-size", "16px")
+                        .style("color", "red")
+                        .text(function (d) { return d; });
+              }
+
+
 }
