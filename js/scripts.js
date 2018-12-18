@@ -353,6 +353,11 @@ var jsondata = [
  }
 ]
 
+firstTabulate(jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
+secondTabulate(jsondata);
+createBasicChart('#first-chart', jsondata);
+createAdvancedChart('#second-chart', jsondata);
+
 function averageJSON(categoryName) {
   var total=0;
   var iterations = 0;
@@ -396,18 +401,6 @@ function firstTabulate(data, columns) {
 
   return table;
 }
-
-// render the table(s)
-firstTabulate(jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
-
-//Create a chart
-var firstSvg = dimple.newSvg("#first-chart", 800, 600);
-var firstChart = new dimple.chart(firstSvg, jsondata);
-firstChart.addMeasureAxis("x", "Difference");
-firstChart.addMeasureAxis("y", "Percentage Popularity");
-firstChart.addSeries("Name", dimple.plot.bubble);
-firstChart.draw()
-//Create second table
 function secondTabulate(data){
 		  var sortAscending = true;
 		  var table = d3.select('#second-table').append('table');
@@ -451,45 +444,61 @@ function secondTabulate(data){
 		    });
 	  };
 
-    secondTabulate(jsondata);
+//Create a chart
 
-var secondSvg = dimple.newSvg("#second-chart", 800, 600);
-var secondChart = new dimple.chart(secondSvg, jsondata);
-var x = secondChart.addMeasureAxis("x", "Difference");
-secondChart.addLogAxis("y", "Percentage Popularity", 2);
-secondChart.addSeries(["Name", "Category"], dimple.plot.bubble);
-secondChart.assignColor("Caro-Kann", "pink")
-secondChart.addLegend(100, 100, 360, 60, "left");
-secondChart.draw();
+function createBasicChart(divId, data){
+  var svg = dimple.newSvg(divId, 800, 600);
+  var chart = new dimple.chart(svg, data);
+  chart.addMeasureAxis("x", "Difference");
+  chart.addMeasureAxis("y", "Percentage Popularity");
+  chart.addSeries("Name", dimple.plot.bubble);
+  chart.draw()
+}
 
-//Add Red Vertical Line for Mean Winning Difference
-secondSvg.append("line")
-    .attr("x1", x._scale(averageJSON("Difference")))
-    .attr("x2", x._scale(averageJSON("Difference")))
-    .attr("y1", secondChart._yPixels())
-    .attr("y2", secondChart._yPixels() + secondChart._heightPixels())
-    .attr("class", "mean")
-    .style("stroke", "red")
-    .style("stroke-dasharray", "3");
-secondSvg.selectAll("mean-text")
-          .data(["Median Winning",  "Percentage"])
-          .enter()
-          .append("text")
-            .attr("x", 400)
-            .attr("y", function (d, i) { return 25 + i * 18; })
-            .attr("class", "mean-winning")
-            .style("font-family", "sans-serif")
-            .style("font-size", "16px")
-            .text(function (d) { return d; });
+function createAdvancedChart(divId, data) {
+  var svg = dimple.newSvg(divId, 800, 600);
+  var chart = new dimple.chart(svg, data);
+  var x = chart.addMeasureAxis("x", "Difference");
+  chart.addLogAxis("y", "Percentage Popularity", 2);
+  chart.addSeries(["Name", "Category"], dimple.plot.bubble);
+  chart.assignColor("Caro-Kann", "pink")
+  chart.addLegend(100, 100, 360, 60, "left");
+  chart.draw();
 
-//Modify Legend to Allow Hiding and Showing of Categories
-secondSvg.selectAll("title_text")
-          .data(["Click legend to","show/hide categories:"])
-          .enter()
-          .append("text")
-            .attr("x", 150)
-            .attr("y", function (d, i) { return 75 + i * 14; })
-            .style("font-family", "sans-serif")
-            .style("font-size", "10px")
-            .style("color", "Black")
-            .text(function (d) { return d; });
+  //Add Red Vertical Line for Mean Winning Difference
+  svg.append("line")
+      .attr("x1", x._scale(averageJSON("Difference")))
+      .attr("x2", x._scale(averageJSON("Difference")))
+      .attr("y1", chart._yPixels())
+      .attr("y2", chart._yPixels() + chart._heightPixels())
+      .attr("class", "mean")
+      .style("stroke", "red")
+      .style("stroke-dasharray", "3");
+  svg.selectAll("mean-text")
+            .data(["Median Winning",  "Percentage"])
+            .enter()
+            .append("text")
+              .attr("x", 400)
+              .attr("y", function (d, i) { return 25 + i * 18; })
+              .attr("class", "mean-winning")
+              .style("font-family", "sans-serif")
+              .style("font-size", "16px")
+              .text(function (d) { return d; });
+}
+
+
+
+
+// var thirdSvg = dimple.newSvg('#third-chart', 800, 600);
+//
+// //Modify Legend to Allow Hiding and Showing of Categories
+// thirdSvg.selectAll("title_text")
+//           .data(["Click legend to","show/hide categories:"])
+//           .enter()
+//           .append("text")
+//             .attr("x", 150)
+//             .attr("y", function (d, i) { return 75 + i * 14; })
+//             .style("font-family", "sans-serif")
+//             .style("font-size", "10px")
+//             .style("color", "Black")
+//             .text(function (d) { return d; });
