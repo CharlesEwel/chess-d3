@@ -462,8 +462,41 @@ function createAdvancedChart(divId, data) {
   chart.addLogAxis("y", "Percentage Popularity", 2);
   chart.addSeries(["Name", "Category"], dimple.plot.bubble);
   chart.assignColor("Caro-Kann", "pink")
-  chart.addLegend(100, 100, 360, 60, "left");
+  var legend = chart.addLegend(100, 100, 360, 60, "left");
   chart.draw();
+  chart.legends = [];
+  // Get a unique list of Owner values to use when filtering
+        var filterValues = dimple.getUniqueValues(data, "Category");
+        // Get all the rectangles from our now orphaned legend
+        legend.shapes.selectAll("rect")
+          // Add a click event to each rectangle
+          .on("click", function (e) {
+            // This indicates whether the item is already visible or not
+            var hide = false;
+            var newFilters = [];
+            // If the filters contain the clicked shape hide it
+            filterValues.forEach(function (f) {
+              if (f === e.aggField.slice(-1)[0]) {
+                hide = true;
+              } else {
+                newFilters.push(f);
+              }
+            });
+            // Hide the shape or show it
+            if (hide) {
+              d3.select(this).style("opacity", 0.2);
+            } else {
+              newFilters.push(e.aggField.slice(-1)[0]);
+              d3.select(this).style("opacity", 0.8);
+            }
+            // Update the filters
+            filterValues = newFilters;
+            // Filter the data
+            chart.data = dimple.filterData(data, "Category", filterValues);
+            // Passing a duration parameter makes the chart animate. Without
+            // it there is no transition
+            chart.draw(800);
+          });
 
   //Add Red Vertical Line for Mean Winning Difference
   svg.append("line")
@@ -484,21 +517,17 @@ function createAdvancedChart(divId, data) {
               .style("font-family", "sans-serif")
               .style("font-size", "16px")
               .text(function (d) { return d; });
+              var thirdSvg = dimple.newSvg('#third-chart', 800, 600);
+
+  //Modify Legend to Allow Hiding and Showing of Categories
+  svg.selectAll("title_text")
+            .data(["Click legend to","show/hide categories:"])
+            .enter()
+            .append("text")
+              .attr("x", 150)
+              .attr("y", function (d, i) { return 75 + i * 14; })
+              .style("font-family", "sans-serif")
+              .style("font-size", "10px")
+              .style("color", "Black")
+              .text(function (d) { return d; });
 }
-
-
-
-
-// var thirdSvg = dimple.newSvg('#third-chart', 800, 600);
-//
-// //Modify Legend to Allow Hiding and Showing of Categories
-// thirdSvg.selectAll("title_text")
-//           .data(["Click legend to","show/hide categories:"])
-//           .enter()
-//           .append("text")
-//             .attr("x", 150)
-//             .attr("y", function (d, i) { return 75 + i * 14; })
-//             .style("font-family", "sans-serif")
-//             .style("font-size", "10px")
-//             .style("color", "Black")
-//             .text(function (d) { return d; });
