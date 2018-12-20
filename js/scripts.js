@@ -489,18 +489,22 @@ function createAdvancedChart(divId, data) {
             var newFilters = [];
             // If the filters contain the clicked shape hide it
             filterValues.forEach(function (f) {
-              if (f === e.aggField.slice(-1)[0]) {
+              if (f !== e.aggField.slice(-1)[0]) {
+                console.log("f: "+f)
                 hide = true;
               } else {
                 newFilters.push(f);
               }
             });
             // Hide the shape or show it
+
             if (hide) {
-              d3.select(this).style("opacity", 0.2);
-            } else {
-              newFilters.push(e.aggField.slice(-1)[0]);
+              legend.shapes.selectAll("rect").style("opacity", 0.2)
               d3.select(this).style("opacity", 0.8);
+              newFilters.push(e.aggField.slice(-1)[0]);
+            } else {
+              legend.shapes.selectAll("rect").style("opacity", 0.8)
+              newFilters=dimple.getUniqueValues(data, "Category");
             }
             // Update the filters
             filterValues = newFilters;
