@@ -505,7 +505,15 @@ function createAdvancedChart(divId, data) {
   var chart = new dimple.chart(svg, data);
   var x = chart.addMeasureAxis("x", "Difference");
   chart.addLogAxis("y", "Percentage Popularity", 2);
-  chart.addSeries(["Name", "Category"], dimple.plot.bubble);
+  var series = chart.addSeries(["Name", "Moves", "Category"], dimple.plot.bubble);
+  series.getTooltipText = function (e) {
+                return [
+                  "Name: " + e.aggField[0],
+                  "Moves: " + e.aggField[1],
+                  "Difference: " + e.cx,
+                  "Percent Popularity: " + e.cy,
+                ];
+            };
   var legend = chart.addLegend(100, 100, 360, 60, "left");
   chart.draw();
   drawMedianLine(svg, x, chart);
