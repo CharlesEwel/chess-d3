@@ -133,7 +133,7 @@ var jsondata = [
  },
  {
    "Name": "Modern Defense (3 Nf3)",
-   "Category": "Modern",
+   "Category": "Modern/Pirc",
    "Moves": "1 e4 g6 2 d4 Bg7 3 Nf3",
    "Games Found": 116,
    "Win": 34.5,
@@ -144,7 +144,7 @@ var jsondata = [
  },
  {
    "Name": "Modern Defense (3 Nc3)",
-   "Category": "Modern",
+   "Category": "Modern/Pirc",
    "Moves": "1 e4 g6 2 d4 Bg7 3 Nc3",
    "Games Found": 112,
    "Win": 43.8,
@@ -155,7 +155,7 @@ var jsondata = [
  },
  {
    "Name": "Pirc Defense",
-   "Category": "Pirc",
+   "Category": "Modern/Pirc",
    "Moves": "1 e4 d6 2 d4 Nf6 3 Nc3",
    "Games Found": 511,
    "Win": 39.9,
@@ -353,12 +353,12 @@ var jsondata = [
  }
 ]
 
-firstTabulate('#first-table', jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
-secondTabulate('#second-table', jsondata);
+basicTabulate('#first-table', jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
+advancedTabulate('#second-table', jsondata);
 createBasicChart('#first-chart', jsondata);
 createAdvancedChart('#second-chart', jsondata);
 createAdvancedChart("#current-chart", jsondata);
-secondTabulate("#current-table", jsondata);
+searchableTabulate("#current-table", jsondata);
 
 
 function averageJSON(categoryName) {
@@ -373,7 +373,7 @@ function averageJSON(categoryName) {
 }
 
 //Create first table
-function firstTabulate(divId, data, columns) {
+function basicTabulate(divId, data, columns) {
 	var table = d3.select(divId).append('table')
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
@@ -404,7 +404,7 @@ function firstTabulate(divId, data, columns) {
 
   return table;
 }
-function secondTabulate(divId, data){
+function advancedTabulate(divId, data){
 		  var sortAscending = true;
 		  var table = d3.select(divId).append('table');
 		  var titles = d3.keys(data[0]);
@@ -446,6 +446,48 @@ function secondTabulate(divId, data){
 		    	return d.value;
 		    });
 	  };
+function searchableTabulate(divId, data){
+  var sortAscending = true;
+  var table = d3.select(divId).append('table');
+  var titles = d3.keys(data[0]);
+  var headers = table.append('thead').append('tr')
+                   .selectAll('th')
+                   .data(titles).enter()
+                   .append('th')
+                   .text(function (d) {
+                      return d;
+                    })
+                   .on('click', function (d) {
+                     headers.attr('class', 'header');
+
+                     if (sortAscending) {
+                       rows.sort(function(a, b) { return b[d] < a[d]; });
+                       sortAscending = false;
+                       this.className = 'aes';
+                     } else {
+                     rows.sort(function(a, b) { return b[d] > a[d]; });
+                     sortAscending = true;
+                     this.className = 'des';
+                     }
+
+                   });
+  var rows = table.append('tbody').selectAll('tr')
+               .data(data).enter()
+               .append('tr');
+  rows.selectAll('td')
+    .data(function (d) {
+      return titles.map(function (k) {
+        return { 'value': d[k], 'name': k};
+      });
+    }).enter()
+    .append('td')
+    .attr('data-th', function (d) {
+      return d.name;
+    })
+    .text(function (d) {
+      return d.value;
+    });
+}
 
 //Create a chart
 
@@ -464,7 +506,6 @@ function createAdvancedChart(divId, data) {
   var x = chart.addMeasureAxis("x", "Difference");
   chart.addLogAxis("y", "Percentage Popularity", 2);
   chart.addSeries(["Name", "Category"], dimple.plot.bubble);
-  chart.assignColor("Caro-Kann", "pink")
   var legend = chart.addLegend(100, 100, 360, 60, "left");
   chart.draw();
   drawMedianLine(svg, x, chart);

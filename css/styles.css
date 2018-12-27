@@ -1,4 +1,28 @@
 
+.navbar {
+	background-color: #e3f2fd;
+}
+
+.text {
+	margin-top: 50px;
+	text-align: center;
+}
+
+body {
+	 background: url("../img/diagonal-squares.png")
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+.container {
+	background-color: white;
+}
+
 .mean-winning {
 	color: red;
 }
