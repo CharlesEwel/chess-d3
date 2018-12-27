@@ -6,15 +6,15 @@
 	/*
 	Generic Styling, for Desktops/Laptops
 	*/
-	#second-table table {
+	.fancy-table table {
 		width: 100%;
 		border-collapse: collapse;
 	}
 	/* Zebra striping */
-	#second-table tr:nth-of-type(odd) {
+	.fancy-table tr:nth-of-type(odd) {
 		background: #eee;
 	}
-	#second-table th {
+	.fancy-table th {
 		background: #333;
 		color: white;
 		font-weight: bold;
@@ -22,17 +22,17 @@
 		background-repeat: no-repeat;
         background-position: 3% center;
 	}
-	#second-table td, th {
+	.fancy-table td, th {
 		padding: 6px;
 		border: 1px solid #ccc;
 		text-align: left;
 	}
 
-	#second-table th.des:after {
+	.fancy-table th.des:after {
       content: "\21E9";
     }
 
-    #second-table th.aes:after {
+    .fancy-table th.aes:after {
       content: "\21E7";
     }
 
@@ -46,20 +46,20 @@
 	(min-device-width: 768px) and (max-device-width: 1024px)  {
 
 		/* Force table to not be like tables anymore */
-		#second-table table, thead, tbody, th, td, tr {
+		.fancy-table table, thead, tbody, th, td, tr {
 			display: block;
 		}
 
 		/* Hide table headers (but not display: none;, for accessibility) */
-		#second-table thead tr {
+		.fancy-table thead tr {
 			position: absolute;
 			top: -9999px;
 			left: -9999px;
 		}
 
-		#second-table tr { border: 1px solid #ccc; }
+		.fancy-table tr { border: 1px solid #ccc; }
 
-		#second-table td {
+		.fancy-table td {
 			/* Behave  like a "row" */
 			border: none;
 			border-bottom: 1px solid #eee;
@@ -67,7 +67,7 @@
 			padding-left: 50%;
 		}
 
-		#second-table td:before {
+		.fancy-table td:before {
 			/* Now like a table header */
 			position: absolute;
 			/* Top/left values mimic padding */
@@ -81,7 +81,7 @@
 		/*
 		Label the data
 		*/
-		#second-table td:before {
+		.fancy-table td:before {
 		  content: attr(data-th) ": ";
           font-weight: bold;
           width: 6.5em;

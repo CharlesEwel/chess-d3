@@ -353,10 +353,13 @@ var jsondata = [
  }
 ]
 
-firstTabulate(jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
-secondTabulate(jsondata);
+firstTabulate('#first-table', jsondata, ['Name', 'Moves', 'Games Found', 'Win', 'Draw', 'Loss', 'Difference', 'Percentage Popularity']); // 2 column table
+secondTabulate('#second-table', jsondata);
 createBasicChart('#first-chart', jsondata);
 createAdvancedChart('#second-chart', jsondata);
+createAdvancedChart("#current-chart", jsondata);
+secondTabulate("#current-table", jsondata);
+
 
 function averageJSON(categoryName) {
   var total=0;
@@ -370,8 +373,8 @@ function averageJSON(categoryName) {
 }
 
 //Create first table
-function firstTabulate(data, columns) {
-	var table = d3.select('#first-table').append('table')
+function firstTabulate(divId, data, columns) {
+	var table = d3.select(divId).append('table')
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
 
@@ -401,9 +404,9 @@ function firstTabulate(data, columns) {
 
   return table;
 }
-function secondTabulate(data){
+function secondTabulate(divId, data){
 		  var sortAscending = true;
-		  var table = d3.select('#second-table').append('table');
+		  var table = d3.select(divId).append('table');
 		  var titles = d3.keys(data[0]);
 		  var headers = table.append('thead').append('tr')
 		                   .selectAll('th')
@@ -490,14 +493,13 @@ function createAdvancedChart(divId, data) {
             // If the filters contain the clicked shape hide it
             filterValues.forEach(function (f) {
               if (f !== e.aggField.slice(-1)[0]) {
-                console.log("f: "+f)
                 hide = true;
               } else {
                 newFilters.push(f);
               }
             });
-            // Hide the shape or show it
 
+            //Reformat the legend to show what has been selected
             if (hide) {
               legend.shapes.selectAll("rect").style("opacity", 0.2)
               d3.select(this).style("opacity", 0.8);
