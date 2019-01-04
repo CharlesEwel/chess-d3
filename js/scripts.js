@@ -371,7 +371,7 @@ function averageJSON(categoryName) {
   return average
 }
 
-//Create first table
+//Table Creation Functions
 function basicTabulate(divId, data, columns) {
 	var table = d3.select(divId).append('table')
 	var thead = table.append('thead')
