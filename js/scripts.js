@@ -360,7 +360,6 @@ createAdvancedChart('#second-chart', jsondata);
 createAdvancedChart("#current-chart", jsondata);
 searchableTabulate("#current-table", jsondata);
 
-
 function averageJSON(categoryName) {
   var total=0;
   var iterations = 0;
@@ -501,7 +500,7 @@ function createBasicChart(divId, data){
 }
 
 function createAdvancedChart(divId, data) {
-  var svg = dimple.newSvg(divId, 800, 600);
+  var svg = dimple.newSvg(divId, "100%", "100%");
   var chart = new dimple.chart(svg, data);
   var x = chart.addMeasureAxis("x", "Difference");
   chart.addLogAxis("y", "Percentage Popularity", 2);
@@ -530,67 +529,75 @@ function createAdvancedChart(divId, data) {
               .style("color", "Black")
               .text(function (d) { return d; });
   chart.legends = [];
+  // Fix the margins
+  chart.setMargins("60px", "30px", "110px", "70px");
   // Get a unique list of Owner values to use when filtering
-        var filterValues = dimple.getUniqueValues(data, "Category");
-        // Get all the rectangles from our now orphaned legend
-        legend.shapes.selectAll("rect")
-          // Add a click event to each rectangle
-          .on("click", function (e) {
-            // This indicates whether the item is already visible or not
-            var hide = false;
-            var newFilters = [];
-            // If the filters contain the clicked shape hide it
-            filterValues.forEach(function (f) {
-              if (f !== e.aggField.slice(-1)[0]) {
-                hide = true;
-              } else {
-                newFilters.push(f);
-              }
-            });
+  var filterValues = dimple.getUniqueValues(data, "Category");
+  // Get all the rectangles from our now orphaned legend
+  legend.shapes.selectAll("rect")
+    // Add a click event to each rectangle
+    .on("click", function (e) {
+      // This indicates whether the item is already visible or not
+      var hide = false;
+      var newFilters = [];
+      // If the filters contain the clicked shape hide it
+      filterValues.forEach(function (f) {
+        if (f !== e.aggField.slice(-1)[0]) {
+          hide = true;
+        } else {
+          newFilters.push(f);
+        }
+      });
 
-            //Reformat the legend to show what has been selected
-            if (hide) {
-              legend.shapes.selectAll("rect").style("opacity", 0.2)
-              d3.select(this).style("opacity", 0.8);
-              newFilters.push(e.aggField.slice(-1)[0]);
-            } else {
-              legend.shapes.selectAll("rect").style("opacity", 0.8)
-              newFilters=dimple.getUniqueValues(data, "Category");
-            }
-            // Update the filters
-            filterValues = newFilters;
-            // Filter the data
-            chart.data = dimple.filterData(data, "Category", filterValues);
-            // Passing a duration parameter makes the chart animate. Without
-            // it there is no transition
-            chart.draw(800);
-            d3.select('.mean').remove()
-            drawMedianLine(svg, x, chart)
+      //Reformat the legend to show what has been selected
+      if (hide) {
+        legend.shapes.selectAll("rect").style("opacity", 0.2)
+        d3.select(this).style("opacity", 0.8);
+        newFilters.push(e.aggField.slice(-1)[0]);
+      } else {
+        legend.shapes.selectAll("rect").style("opacity", 0.8)
+        newFilters=dimple.getUniqueValues(data, "Category");
+      }
+      // Update the filters
+      filterValues = newFilters;
+      // Filter the data
+      chart.data = dimple.filterData(data, "Category", filterValues);
+      // Passing a duration parameter makes the chart animate. Without
+      // it there is no transition
+      chart.draw(800);
+      d3.select('.mean').remove()
+      drawMedianLine(svg, x, chart)
 
-          });
+    });
 
 
-          function drawMedianLine(svg, x, chart){
-            svg.append("line")
-                .attr("x1", x._scale(averageJSON("Difference")))
-                .attr("x2", x._scale(averageJSON("Difference")))
-                .attr("y1", chart._yPixels())
-                .attr("y2", chart._yPixels() + chart._heightPixels())
-                .attr("class", "mean")
-                .style("stroke", "red")
-                .style("stroke-dasharray", "3");
-            svg.selectAll("mean-text")
-                      .data(["Median Winning",  "Percentage"])
-                      .enter()
-                      .append("text")
-                        .attr("x", 400)
-                        .attr("y", function (d, i) { return 25 + i * 18; })
-                        .attr("class", "mean-winning")
-                        .style("font-family", "sans-serif")
-                        .style("font-size", "16px")
-                        .style("color", "red")
-                        .text(function (d) { return d; });
-              }
+    function drawMedianLine(svg, x, chart){
+      svg.append("line")
+          .attr("x1", x._scale(averageJSON("Difference")))
+          .attr("x2", x._scale(averageJSON("Difference")))
+          .attr("y1", chart._yPixels())
+          .attr("y2", chart._yPixels() + chart._heightPixels())
+          .attr("class", "mean")
+          .style("stroke", "red")
+          .style("stroke-dasharray", "3");
+      svg.selectAll("mean-text")
+                .data(["Mean Winning",  "Percentage"])
+                .enter()
+                .append("text")
+                  .attr("x", x._scale(averageJSON("Difference"))-50)
+                  .attr("y", function (d, i) { return 25 + i * 18; })
+                  .attr("class", "mean")
+                  .style("font-family", "sans-serif")
+                  .style("font-size", "16px")
+                  .style("color", "red")
+                  .text(function (d) { return d; });
+      }
+
+      window.onresize = function () {
+        chart.draw(0, true);
+        d3.selectAll('.mean').remove()
+        drawMedianLine(svg, x, chart)
+      };
 
 
 }
